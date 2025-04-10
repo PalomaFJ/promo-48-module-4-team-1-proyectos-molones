@@ -7,8 +7,8 @@ import Preview from "./Preview";
 import localStorage from "../services/localStorage";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./Landing";
-
-//inputs
+import { Link } from "react-router-dom";
+import ViewProjects from "./ViewProjects";
 
 function App() {
   /* const [avatar, setAvatar] = useState("");
@@ -152,51 +152,52 @@ function App() {
         <Route
           path="/start"
           element={
-              <div className="container">
-                <Header />
+            <div className="container">
+              <Header />
 
-                <main className="main">
-                  <section className="hero">
-                    <h2 className="title">Proyectos molones</h2>
-                    <p className="hero__text">
-                      Escaparate en línea para recoger ideas a través de la
-                      tecnología
-                    </p>
-                    <a className="button--link" href="./">
-                      Ver proyectos
-                    </a>
-                    <button
-                      className="button--link"
-                      onClick={handleClickReset}
-                      type="reset"
-                    >
-                      Reset
-                    </button>
-                  </section>
+              <main className="main">
+                <section className="hero">
+                  <h2 className="title">Proyectos molones</h2>
+                  <p className="hero__text">
+                    Escaparate en línea para recoger ideas a través de la
+                    tecnología
+                  </p>
+                  <Link className="button--link" to="/projects">
+                    Ver proyectos
+                  </Link>
+                  <button
+                    className="button--link"
+                    onClick={handleClickReset}
+                    type="reset"
+                  >
+                    Reset
+                  </button>
+                </section>
 
-                  <Preview project={projectInfo} />
-                  <Form
-                    onInputAuthorImage={handleChangeImageAuthor}
-                    onInputProjectImage={handleChangeImageProject}
-                    onInputProjectName={handleChangeProjectName}
-                    onInputProjectSlogan={handleChangeProjectSlogan}
-                    onInputProjectRepository={handleChangeProjectRepository}
-                    onInputProjectDemo={handleChangeProjectDemo}
-                    onInputProjectTechnologies={handleChangeProjectTechnologies}
-                    onInputProjectDescription={handleChangeProjectDescription}
-                    onInputUserName={handleChangeUserName}
-                    onInputUserJob={handleChangeUserJob}
-                    onSaveProject={handleSubmitProject}
-                    urlProject={urlProject}
-                    isLinkVisible={isLinkVisible}
-                    projectInfo={projectInfo}
-                  />
-                </main>
+                <Preview project={projectInfo} />
+                <Form
+                  onInputAuthorImage={handleChangeImageAuthor}
+                  onInputProjectImage={handleChangeImageProject}
+                  onInputProjectName={handleChangeProjectName}
+                  onInputProjectSlogan={handleChangeProjectSlogan}
+                  onInputProjectRepository={handleChangeProjectRepository}
+                  onInputProjectDemo={handleChangeProjectDemo}
+                  onInputProjectTechnologies={handleChangeProjectTechnologies}
+                  onInputProjectDescription={handleChangeProjectDescription}
+                  onInputUserName={handleChangeUserName}
+                  onInputUserJob={handleChangeUserJob}
+                  onSaveProject={handleSubmitProject}
+                  urlProject={urlProject}
+                  isLinkVisible={isLinkVisible}
+                  projectInfo={projectInfo}
+                />
+              </main>
 
-                <Footer />
-              </div>
+              <Footer />
+            </div>
           }
         />
+        <Route path="/projects" element={<ViewProjects />} />
       </Routes>
     </>
   );
