@@ -1,10 +1,32 @@
+import "../scss/App.scss";
+import Header from "./Header";
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
+import ProjectCard from "./ProjectCard";
 
 const ViewProjects = () => {
   return (
-    <main className="view_projects">
-      <h1 className="view_projects_title">Mis proyectos</h1>
-    </main>
+    <div className="container containerComponent">
+      <Header />
+      <main className="view_projects">
+        <section className="hero">
+          <h2 className="title">Proyectos molones</h2>
+          <p className="hero__text">
+            Escaparate en línea para recoger ideas a través de la tecnología
+          </p>
+          <Link className="button--link--view-proyects" to="/start">
+            Nuevo Proyecto
+          </Link>
+        </section>
+        <section className="projectCardBox">
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
