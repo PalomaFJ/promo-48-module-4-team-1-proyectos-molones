@@ -1,5 +1,5 @@
 import "../scss/App.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Form from "./Form";
@@ -118,6 +118,7 @@ function App() {
       job: value,
     });
   };
+  const [prove, setProve] = useState([]);
 
   const handleSubmitProject = () => {
     const validFields = Object.values(projectInfo).every(
@@ -144,6 +145,15 @@ function App() {
         alert("¡Proyecto enviado con éxito!");
       });
   };
+
+  //Hacer el fetch con el use Effect
+  useEffect(() => {
+    fetch("http://localhost:5000/api/infoprojects")
+      .then((response) => response.json())
+      .then((data) => {
+        setProve(data);
+      });
+  }, []);
 
   return (
     <>
@@ -197,7 +207,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/projects" element={<ViewProjects />} />
+        <Route path="/projects" element={<ViewProjects data={prove} />} />
       </Routes>
     </>
   );

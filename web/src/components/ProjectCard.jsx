@@ -1,35 +1,33 @@
-import imgAuthor from "../images/avatar.webp";
+//import imgAuthor from "../images/avatar.webp";
 
-const ProjectCard = () => {
+const ProjectCard = ({ data }) => {
+  console.log(data);
   return (
     <article className="card cardComponent">
       <h2 className="card__projectTitle">
-        <span className="card__projectTitle--text">Personal project card</span>
+        <span className="card__projectTitle--text">Personal Project Card</span>
       </h2>
 
       <div className="card__author">
         <div className="card__authorPhoto">
-          <img src={imgAuthor} alt="imagen del autor" />
+          <img src={data.result.photo} alt="imagen del autor" />
         </div>
-        <p className="card__job">Full stack Developer</p>
-        <h3 className="card__name">Emmelie Bjôrklund</h3>
+        <p className="card__job">{data.result.job}</p>
+        <h3 className="card__name">{data.result.autor}</h3>
       </div>
 
       <div className="card__project">
-        <h3 className="card__name">Elegant Workspace</h3>
-        <p className="card__slogan">Diseños exclusivos</p>
+        <h3 className="card__name">{data.result.name}</h3>
+        <p className="card__slogan">{data.result.slogan}</p>
         <h3 className="card__descriptionTitle">Product Description</h3>
-        <p className="card__description">
-          Tiene musho peligro caballo blanco caballo negroorl te voy a borrar el
-          cerito está la cosa muy malar qué dise usteer llevame al sircoo.
-        </p>
+        <p className="card__description">{data.result.desc}</p>
 
         <div className="card__technicalInfo">
-          <p className="card__technologies">React JS - HTML - CSS"</p>
+          <p className="card__technologies">{data.result.technologies}</p>
 
           <a
             className="icon icon__www"
-            href=""
+            href={data.result.demo}
             target="_blank"
             title="Haz click para ver el proyecto online"
           >
@@ -37,7 +35,7 @@ const ProjectCard = () => {
           </a>
           <a
             className="icon icon__github"
-            href=""
+            href={data.result.repo}
             target="_blank"
             title="Haz click para ver el código del proyecto"
           >

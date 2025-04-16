@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 
-const ViewProjects = () => {
+const ViewProjects = ({ data }) => {
   return (
     <div className="container containerComponent">
       <Header />
@@ -19,10 +19,10 @@ const ViewProjects = () => {
           </Link>
         </section>
         <section className="projectCardBox">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard data={data} />
+          <ProjectCard data={data} />
+          <ProjectCard data={data} />
+          <ProjectCard data={data} />
         </section>
       </main>
       <Footer />
