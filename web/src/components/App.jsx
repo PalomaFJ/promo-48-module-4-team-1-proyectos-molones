@@ -151,7 +151,7 @@ function App() {
     fetch("http://localhost:5000/api/infoprojects")
       .then((response) => response.json())
       .then((data) => {
-        setProve(data);
+        setProve(data.result);
       });
   }, []);
 
@@ -207,7 +207,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/projects" element={<ViewProjects data={prove} />} />
+        <Route path="/projects" element={<ViewProjects prove={prove} />} />
       </Routes>
     </>
   );

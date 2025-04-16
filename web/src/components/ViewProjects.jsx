@@ -4,7 +4,8 @@ import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 
-const ViewProjects = ({ data }) => {
+const ViewProjects = ({ prove }) => {
+  console.log(prove);
   return (
     <div className="container containerComponent">
       <Header />
@@ -19,10 +20,11 @@ const ViewProjects = ({ data }) => {
           </Link>
         </section>
         <section className="projectCardBox">
-          <ProjectCard data={data} />
-          <ProjectCard data={data} />
-          <ProjectCard data={data} />
-          <ProjectCard data={data} />
+          {prove.map((projectMates) => {
+            return (
+              <ProjectCard dataMate={projectMates} key={projectMates.autor} />
+            );
+          })}
         </section>
       </main>
       <Footer />

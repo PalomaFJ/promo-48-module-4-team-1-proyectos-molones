@@ -1,7 +1,7 @@
 //import imgAuthor from "../images/avatar.webp";
 
-const ProjectCard = ({ data }) => {
-  console.log(data);
+const ProjectCard = ({ dataMate }) => {
+  console.log(dataMate);
   return (
     <article className="card cardComponent">
       <h2 className="card__projectTitle">
@@ -10,24 +10,24 @@ const ProjectCard = ({ data }) => {
 
       <div className="card__author">
         <div className="card__authorPhoto">
-          <img src={data.result.photo} alt="imagen del autor" />
+          <img src={dataMate.photo} alt="imagen del autor" />
         </div>
-        <p className="card__job">{data.result.job}</p>
-        <h3 className="card__name">{data.result.autor}</h3>
+        <p className="card__job">{dataMate.job}</p>
+        <h3 className="card__name">{dataMate.autor}</h3>
       </div>
 
       <div className="card__project">
-        <h3 className="card__name">{data.result.name}</h3>
-        <p className="card__slogan">{data.result.slogan}</p>
+        <h3 className="card__name">{dataMate.name}</h3>
+        <p className="card__slogan">{dataMate.slogan}</p>
         <h3 className="card__descriptionTitle">Product Description</h3>
-        <p className="card__description">{data.result.desc}</p>
+        <p className="card__description">{dataMate.desc}</p>
 
         <div className="card__technicalInfo">
-          <p className="card__technologies">{data.result.technologies}</p>
+          <p className="card__technologies">{dataMate.technologies}</p>
 
           <a
             className="icon icon__www"
-            href={data.result.demo}
+            href={dataMate.demo}
             target="_blank"
             title="Haz click para ver el proyecto online"
           >
@@ -35,7 +35,7 @@ const ProjectCard = ({ data }) => {
           </a>
           <a
             className="icon icon__github"
-            href={data.result.repo}
+            href={dataMate.repo}
             target="_blank"
             title="Haz click para ver el código del proyecto"
           >
