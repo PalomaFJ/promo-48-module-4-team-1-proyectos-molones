@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const mysql = require("mysql2/promise");
 
 const server = express();
 
@@ -72,7 +73,7 @@ const prove = [
   },
 ];
 
-server.get("/api/infoprojects", (req, res) => {
+/*server.get("/api/infoprojects", (req, res) => {
   if (prove.length === 0) {
     res.json({
       status: "error",
@@ -84,4 +85,23 @@ server.get("/api/infoprojects", (req, res) => {
       result: prove,
     });
   }
-});
+});*/
+
+async function getConnection() {
+  const connection = await mysql.createConnection({
+    host: 'localhost',
+    database: 'defaultdb',
+    user: '',
+    password: '',
+    port: '10141'
+
+  });
+  connection.connect();
+  return connection;
+
+}
+
+server.get('/api/infoprojects'), async (req, res) => {
+  const connection = await getConnection()
+}
+
