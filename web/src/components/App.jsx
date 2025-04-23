@@ -33,7 +33,7 @@ function App() {
     })
   );
   localStorage.set("projectInfo", projectInfo);
-
+  console.log(projectInfo);
   function handleClickReset(ev) {
     ev.preventDefault();
     localStorage.clear();
@@ -130,7 +130,7 @@ function App() {
       );
       return;
     }
-    fetch("https://dev.adalab.es/api/projectCard", {
+    fetch("http://localhost:5000/api/project", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
