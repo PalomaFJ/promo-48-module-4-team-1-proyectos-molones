@@ -40,8 +40,10 @@ server.get('/api/infoprojects', async (req, res) => {
 
 const query = "SELECT authors.autor, authors.job, authors.photo, projects.name, projects.demo, projects.description, projects.slogan, projects.technologies , projects.image, projects.repo, projects.fk_author FROM authors INNER JOIN projects ON authors.idAuthor = projects.fk_author ;"
 const [projectsResult] = await connection.query(query);
-console.log(projectsResult);
 connection.end();
-res.json({});
+res.status(200).json({
+  success: true,
+  result: projectsResult
+});
 }); 
 
