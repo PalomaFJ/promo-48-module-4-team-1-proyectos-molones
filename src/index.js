@@ -6,7 +6,8 @@ const mysql = require("mysql2/promise");
 const server = express();
 
 server.use(cors());
-
+server.use(express.json({ limit: '10mb' }));
+server.use(express.urlencoded( { limit: '10mb', extended: true } ));
 require("dotenv").config();
 
 const port = 5000;
@@ -56,6 +57,7 @@ server.post('/api/project', async (req, res) => {
     req.body.job,
     req.body.photo,
   ]);
+  console.log(authorResult);
   const idNewAuthor = authorResult.insertId;
   const projectQuerySQL =
     "INSERT INTO projects (name, demo, description, slogan, technologies, image, repo, fk_author) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
