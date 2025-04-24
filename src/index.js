@@ -12,7 +12,7 @@ server.use(cors());
 
 require("dotenv").config();
 
-const port = 5000;
+const port = process.env.DB_PORT;
 server.listen(port, () => {
   console.log("server is runing on http://localhost:" + port);
 });
@@ -30,7 +30,7 @@ async function getConnection() {
     database: 'defaultdb',
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    port: '10141'
+    port: process.env.DB_AIVEN_PORT,
 
   });
   connection.connect();
