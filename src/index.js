@@ -12,7 +12,7 @@ server.use(cors());
 
 require("dotenv").config();
 
-const port = process.env.DB_PORT;
+const port = process.env.PORT;
 server.listen(port, () => {
   console.log("server is runing on http://localhost:" + port);
 });
