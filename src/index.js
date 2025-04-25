@@ -12,6 +12,8 @@ server.use(cors());
 
 require("dotenv").config();
 
+server.set("view engine", "ejs");
+
 const port = process.env.PORT;
 server.listen(port, () => {
   console.log("server is runing on http://localhost:" + port);
@@ -83,7 +85,7 @@ server.post('/api/project', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      cardURL: "",
+      cardURL:`http://localhost:5000/detail/${projectResult.insertId}`,
     });
 
   } catch (error) {
@@ -92,3 +94,14 @@ server.post('/api/project', async (req, res) => {
   }
 
 });
+
+server.get("/detail/:idProject", async (req, res) =>{
+  const connection = await getConnection();
+  const projectId = req.params.idProject;
+  const sqlQuery = "SELECT * FROM projects, authors WHERE projects.fk_author = authors.idAuthor AND idProjects = ? ";
+  const [result] = await connection.query(sqlQuery,[projectId])
+  connection.end();
+
+res.render("projectDetail", { project: result[0]});
+});
+
