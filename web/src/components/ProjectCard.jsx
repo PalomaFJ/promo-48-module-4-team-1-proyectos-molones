@@ -20,7 +20,7 @@ const ProjectCard = ({ dataMate }) => {
         <h3 className="card__name">{dataMate.name}</h3>
         <p className="card__slogan">{dataMate.slogan}</p>
         <h3 className="card__descriptionTitle">Product Description</h3>
-        <p className="card__description">{dataMate.desc}</p>
+        <p className="card__description">{dataMate.description}</p>
 
         <div className="card__technicalInfo">
           <p className="card__technologies">{dataMate.technologies}</p>

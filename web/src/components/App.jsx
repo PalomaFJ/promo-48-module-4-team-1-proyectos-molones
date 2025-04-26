@@ -136,7 +136,7 @@ function App() {
       );
       return;
     }
-    fetch(`${URL}/api/project`, {
+    fetch(`http://localhost:5000/api/project`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -154,7 +154,7 @@ function App() {
 
   //Hacer el fetch con el use Effect
   useEffect(() => {
-    fetch(`${URL}/api/infoprojects`)
+    fetch(`http://localhost:5000/api/infoprojects`)
       .then((response) => response.json())
       .then((data) => {
         setProve(data.result);
