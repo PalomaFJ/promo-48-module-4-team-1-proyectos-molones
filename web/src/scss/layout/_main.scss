@@ -533,8 +533,21 @@ fieldset {
 
         }
     }
-
 }
+//mobile
+@media (max-width: 420px) {
+    
+   .landing_image {
+    width: 200px;
+   }
+  }
+  @media (max-width: 768px) {
+    .landing_image {
+        width: 400px;
+    }
+  }
+
+
 
 .view_projects {
     display: flex;
