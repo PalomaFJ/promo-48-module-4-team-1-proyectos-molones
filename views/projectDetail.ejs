@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/web/src/scss/App.scss">
+    <title>Tu proyecto</title>
+    <link rel="stylesheet" href="/main.css" />
 </head>
+
 <body>
-    <%- include("./partials/footer.ejs") %>
+    <div class="container">
+        <%- include("./partials/header.ejs") %>
+            <%- include("./partials/hero.ejs") %>
+                <section class="preview">
+                    <div class="projectImage">
+                        <img src="<%= project.image %>" alt="" />
+                    </div>
+
+                    <article class="card">
+                        <h2 class="card__projectTitle">
+                            <span class="card__projectTitle--text">
+                                Personal project card
+                            </span>
+                        </h2>
+
+                        <div class="card__author">
+                            <div class="card__authorPhoto">
+                                <img src=" <%= project.photo %>" />
+                            </div>
+                            <p class="card__job">
+                                <%= project.job %>
+                            </p>
+                            <h3 class="card__name">
+                                <%= project.autor %>
+                            </h3>
+                        </div>
+
+                        <div class="card__project">
+                            <h3 class="card__name">
+                                <%= project.name %>
+                            </h3>
+                            <p class="card__slogan">
+                                <%= project.slogan %>
+                            </p>
+                            <h3 class="card__descriptionTitle">
+                                <%= project.name %>
+                            </h3>
+                            <p class="card__description">
+                                <%= project.description %>
+                            </p>
+
+                            <div class="card__technicalInfo">
+                                <p class="card__technologies">
+                                    <%= project.technologies %>
+                                </p>
+
+                                <a class="icon icon__www" href="" target="_blank"
+                                    title="Haz click para ver el proyecto online">
+                                    <%= project.demo %>
+                                </a>
+                                <a class="icon icon__github" href="" target="_blank"
+                                    title="Haz click para ver el código del proyecto">
+                                    <%= project.repo %>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <%- include("./partials/footer.ejs") %>
+
+    </div>
+
 </body>
+
 </html>
