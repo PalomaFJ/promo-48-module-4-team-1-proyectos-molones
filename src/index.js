@@ -22,6 +22,12 @@ const port = process.env.PORT || 5000;
 const pathToPublic = path.join(__dirname, "src/public-react");
 server.use(express.static(pathToPublic));
 
+const URL_PRODUCTION =
+  "https://promo-48-module-4-team-1-proyectos.onrender.com";
+const URL_LOCAL = "http://localhost:5000";
+
+const URL = process.env.NODE_ENV === "production" ? URL_PRODUCTION : URL_LOCAL;
+
 
 server.listen(port, () => {
   console.log("server is runing on http://localhost:" + port);
@@ -90,7 +96,7 @@ server.post("/api/project", async (req, res) => {
 
     res.status(200).json({
       success: true,
-      cardURL: `http://localhost:5000/detail/${projectResult.insertId}`,
+      cardURL: `${URL}/detail/${projectResult.insertId}`,
     });
   } catch (error) {
     console.error("Error en el servidor:", error);

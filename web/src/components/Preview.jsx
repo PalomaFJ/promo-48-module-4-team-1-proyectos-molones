@@ -58,19 +58,6 @@ function Preview({ project }) {
             </a>
           </div>
         </div>
-
-        {/* {isLinkVisible && urlProject.cardURL && (
-          <p className="project__saved-link">
-            ¡Proyecto guardado! Puedes verlo{" "}
-            <a
-              href={urlProject.cardURL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              aquí
-            </a>
-          </p>
-        )} */}
       </article>
     </section>
   );
