@@ -7,31 +7,24 @@ const server = express();
 
 server.use(express.json({ limit: "10mb" }));
 server.use(express.urlencoded({ limit: "10mb", extended: true }));
+
 server.use(cors());
 
 require("dotenv").config();
+
 server.set("view engine", "ejs");
 
-const staticServerPath = path.join(__dirname, "web/dist");
-server.use(express.static(staticServerPath));
-
-server.get("/", (req, res) => {
-  res.sendFile(path.join(staticServerPath, "index.html"));
+const port = process.env.PORT;
+server.listen(port, () => {
+  console.log("server is runing on http://localhost:" + port);
 });
+
+const staticServerPath = "./src/public-react";
+server.use(express.static(staticServerPath));
 
 server.use(express.static("src/public-css"));
 
 server.use("/images", express.static(path.join(__dirname, "images")));
-
-const port = process.env.PORT || 5000;
-server.listen(port, () => {
-  console.log("server is runing on http://localhost:" + port);
-  console.log(`server is running on https://promo-48-module-4-team-1-proyectos.onrender.com`);
-
-});
-
-
-
 
 //datos farzos
 

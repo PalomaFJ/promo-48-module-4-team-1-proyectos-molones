@@ -14,7 +14,7 @@ const URL_PRODUCTION =
   "https://promo-48-module-4-team-1-proyectos.onrender.com";
 const URL_LOCAL = "http://localhost:5000";
 
-const URL = process.env.NODE_ENV === "production" ? URL_PRODUCTION : URL_LOCAL;
+const URL = process.env.NODE_ENV === "development" ? URL_PRODUCTION : URL_LOCAL;
 
 function App() {
   /* const [avatar, setAvatar] = useState("");
@@ -136,7 +136,7 @@ function App() {
       );
       return;
     }
-    fetch(`${URL}/api/project`, {
+    fetch(`http://localhost:5000/api/project`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -154,7 +154,7 @@ function App() {
 
   //Hacer el fetch con el use Effect
   useEffect(() => {
-    fetch(`${URL}/api/infoprojects`)
+    fetch(`http://localhost:5000/api/infoprojects`)
       .then((response) => response.json())
       .then((data) => {
         setProve(data.result);
