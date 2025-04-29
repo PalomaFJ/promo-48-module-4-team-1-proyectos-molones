@@ -19,7 +19,7 @@ server.listen(port, () => {
   console.log("server is runing on http://localhost:" + port);
 });
 
-const staticServerPath = "./src/public-react";
+const staticServerPath = path.join(__dirname, "web/dist");
 server.use(express.static(staticServerPath));
 
 server.use(express.static("src/public-css"));
