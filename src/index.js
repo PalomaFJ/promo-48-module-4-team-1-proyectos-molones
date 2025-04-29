@@ -14,13 +14,16 @@ require("dotenv").config();
 
 server.set("view engine", "ejs");
 
+const staticServerPath = "./src/public-react";
+server.use(express.static(staticServerPath));
+
+
 const port = process.env.PORT;
 server.listen(port, () => {
   console.log("server is runing on http://localhost:" + port);
 });
 
-const staticServerPath = "./src/public-react";
-server.use(express.static(staticServerPath));
+
 
 server.use(express.static("src/public-css"));
 

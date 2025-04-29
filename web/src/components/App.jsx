@@ -14,7 +14,7 @@ const URL_PRODUCTION =
   "https://promo-48-module-4-team-1-proyectos.onrender.com";
 const URL_LOCAL = "http://localhost:5000";
 
-const URL = process.env.NODE_ENV === "development" ? URL_PRODUCTION : URL_LOCAL;
+const URL = process.env.NODE_ENV === "production" ? URL_PRODUCTION : URL_LOCAL;
 
 function App() {
   /* const [avatar, setAvatar] = useState("");
