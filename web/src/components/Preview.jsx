@@ -59,7 +59,7 @@ function Preview({ project }) {
           </div>
         </div>
 
-        {isLinkVisible && urlProject.cardURL && (
+        {/* {isLinkVisible && urlProject.cardURL && (
           <p className="project__saved-link">
             ¡Proyecto guardado! Puedes verlo{" "}
             <a
@@ -70,7 +70,7 @@ function Preview({ project }) {
               aquí
             </a>
           </p>
-        )}
+        )} */}
       </article>
     </section>
   );

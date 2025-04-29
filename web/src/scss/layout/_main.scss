@@ -534,18 +534,20 @@ fieldset {
         }
     }
 }
+
 //mobile
 @media (max-width: 420px) {
-    
-   .landing_image {
-    width: 200px;
-   }
-  }
-  @media (max-width: 768px) {
+
+    .landing_image {
+        width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
     .landing_image {
         width: 400px;
     }
-  }
+}
 
 
 
@@ -563,18 +565,15 @@ fieldset {
 
 .cardComponent {
     margin: 0 auto;
+    width: 500px;
 
-
-
-    @media (min-width: 450px) {
-        max-width: 500px;
+    @media (max-width: 768px) {
+        width: 80%;
     }
 
-    @media (min-width: 1440px) {
-        max-width: 700px;
-
+    @media (max-width: 420px) {
+        width: 100%;
     }
-
 
 
 
